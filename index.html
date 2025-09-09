@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E.D.G.E. 2025 | Mini Project Competition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617; /* slate-950 */
+            color: #d1d5db; /* gray-300 */
+        }
+        .hero-gradient-bg {
+            background: radial-gradient(circle at top, rgba(30, 27, 75, 0.7) 0%, rgba(2, 6, 23, 0) 50%);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #818cf8, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-gradient {
+            background-image: linear-gradient(to right, #4f46e5, #c026d3);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(192, 38, 211, 0.2), 0 6px 6px rgba(79, 70, 229, 0.2);
+        }
+        .section-glow {
+            position: relative;
+        }
+        .section-glow::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 200px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .card-hover {
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ openMenu: false }">
+    <!-- Header -->
+    <header class="bg-slate-950/80 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">E.D.G.E. 2025</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-violet-400 transition-colors">About</a>
+                <a href="#tracks" class="hover:text-violet-400 transition-colors">Tracks</a>
+                <a href="#schedule" class="hover:text-violet-400 transition-colors">Schedule</a>
+                <a href="#rules" class="hover:text-violet-400 transition-colors">Rules</a>
+                <a href="#faq" class="hover:text-violet-400 transition-colors">FAQ</a>
+            </nav>
+            <a href="https://forms.gle/sno9VLrCvXJanuMZ9" target="_blank" class="hidden md:block bg-slate-800 text-white font-semibold px-5 py-2 rounded-lg hover:bg-slate-700 transition-colors">Register</a>
+            <button @click="openMenu = !openMenu" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div x-show="openMenu" x-cloak @click.away="openMenu = false" class="md:hidden bg-slate-900 py-4">
+             <a href="#about" @click="openMenu = false" class="block text-center py-2 px-4 hover:bg-slate-800">About</a>
+             <a href="#tracks" @click="openMenu = false" class="block text-center py-2 px-4 hover:bg-slate-800">Tracks</a>
+             <a href="#schedule" @click="openMenu = false" class="block text-center py-2 px-4 hover:bg-slate-800">Schedule</a>
+             <a href="#rules" @click="openMenu = false" class="block text-center py-2 px-4 hover:bg-slate-800">Rules</a>
+             <a href="#faq" @click="openMenu = false" class="block text-center py-2 px-4 hover:bg-slate-800">FAQ</a>
+             <a href="https://forms.gle/sno9VLrCvXJanuMZ9" target="_blank" class="block text-center py-2 px-4 mt-2 bg-violet-600 text-white font-semibold mx-4 rounded-lg">Register</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 text-center hero-gradient-bg overflow-hidden">
+            <div class="container mx-auto px-6">
+                <p class="text-violet-400 font-semibold text-lg">MIT World Peace University Presents</p>
+                <h1 class="text-5xl md:text-8xl font-black text-white mt-4 tracking-tighter">E.D.G.E. 2025</h1>
+                <p class="text-xl md:text-3xl font-bold gradient-text mt-2">Explore Design Gear-up Exhibit</p>
+                <p class="max-w-3xl mx-auto mt-6 text-lg md:text-xl text-gray-400">
+                    The ultimate arena for the brightest minds in computer applications to innovate, build, and showcase their technical genius.
+                </p>
+                <div class="mt-10">
+                    <a href="https://forms.gle/sno9VLrCvXJanuMZ9" target="_blank" class="btn-gradient text-white font-bold text-lg px-12 py-4 rounded-xl shadow-lg">
+                        Unleash Your Genius & Register Now!
+                    </a>
+                </div>
+                 <!-- Countdown Timer -->
+                 <div x-data="countdown('2025-10-10T23:59:59')" x-init="init()" class="max-w-2xl mx-auto mt-12 bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="font-bold text-white text-xl mb-4">Registration Closes In:</h3>
+                    <div class="grid grid-cols-4 gap-4 text-white">
+                        <div>
+                            <span x-text="days" class="text-4xl md:text-5xl font-bold gradient-text"></span>
+                            <span class="block text-sm text-gray-400">Days</span>
+                        </div>
+                        <div>
+                            <span x-text="hours" class="text-4xl md:text-5xl font-bold gradient-text"></span>
+                            <span class="block text-sm text-gray-400">Hours</span>
+                        </div>
+                        <div>
+                            <span x-text="minutes" class="text-4xl md:text-5xl font-bold gradient-text"></span>
+                            <span class="block text-sm text-gray-400">Minutes</span>
+                        </div>
+                        <div>
+                            <span x-text="seconds" class="text-4xl md:text-5xl font-bold gradient-text"></span>
+                            <span class="block text-sm text-gray-400">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 section-glow">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">What is E.D.G.E.?</h2>
+                    <p class="text-lg text-violet-400 mt-2">More Than Just a Competition</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-lg text-gray-400 space-y-4">
+                        <p><strong>E.D.G.E. (Explore Design Gear-up Exhibit)</strong> is the annual flagship mini-project competition hosted by the Department of Computer Science and Applications. It's a platform designed to ignite the spark of innovation among our UG and PG students.</p>
+                        <p>We challenge you to push the boundaries of technology, transform your theoretical knowledge into practical, running projects, and present your solutions to a panel of experts. It’s your chance to shine, get recognized, and prove that you have the edge.</p>
+                        <p>Whether you're passionate about AI, securing the cloud, building the next killer app, or exploring the decentralized world of blockchain, E.D.G.E. has a track for you.</p>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border-2 border-slate-700">
+                         <img src="https://placehold.co/600x400/020617/d1d5db?text=E.D.G.E.+Innovation+Lab" alt="Students collaborating in a computer lab" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracks Section -->
+        <section id="tracks" class="py-20 md:py-32 bg-slate-900 section-glow">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Competition Tracks</h2>
+                    <p class="text-lg text-violet-400 mt-2">Choose your battleground. (Separate for UG & PG)</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Track 1 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center border border-slate-700 card-hover">
+                        <div class="w-16 h-16 bg-violet-500/10 text-violet-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="12" width="16" height="8" rx="2"/><path d="M12 12v8"/><path d="M16 4v4"/><path d="m18 6 4-2"/><path d="m6 6-4-2"/><path d="M12 4V2"/><path d="m12 12-4-2"/><path d="m12 12 4-2"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">AI & Data Science</h3>
+                        <p class="text-gray-400">From machine learning models to insightful data visualizations, show us how you can make data speak.</p>
+                    </div>
+                    <!-- Track 2 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center border border-slate-700 card-hover">
+                         <div class="w-16 h-16 bg-violet-500/10 text-violet-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18a2.64 2.64 0 0 0-3.46 0l-1.41 1.41a2 2 0 1 1-2.83-2.83l1.41-1.41a2.64 2.64 0 0 0 0-3.46l-1.41-1.41a2 2 0 1 1 2.83-2.83l1.41 1.41a2.64 2.64 0 0 0 3.46 0l1.41-1.41a2 2 0 1 1 2.83 2.83l-1.41 1.41a2.64 2.64 0 0 0 0 3.46l1.41 1.41a2 2 0 1 1-2.83 2.83l-1.41-1.41a2.64 2.64 0 0 0-3.46 0Z"/><path d="M2.27 6a2.64 2.64 0 0 0 3.46 0l1.41-1.41a2 2 0 1 1 2.83 2.83l-1.41 1.41a2.64 2.64 0 0 0 0 3.46l1.41 1.41a2 2 0 1 1-2.83 2.83l-1.41-1.41a2.64 2.64 0 0 0-3.46 0L2.27 18a2 2 0 1 1-2.83-2.83l1.41-1.41a2.64 2.64 0 0 0 0-3.46L.85 9.27A2 2 0 1 1 3.68 6.44Z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Blockchain & More</h3>
+                        <p class="text-gray-400">Dive into the decentralized world. Projects on cryptocurrencies, NFTs, smart contracts, or other emerging tech.</p>
+                    </div>
+                    <!-- Track 3 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center border border-slate-700 card-hover">
+                         <div class="w-16 h-16 bg-violet-500/10 text-violet-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Web/Mobile Applications</h3>
+                        <p class="text-gray-400">Create a dynamic, user-friendly, and impactful web or mobile application that solves a real-world problem.</p>
+                    </div>
+                    <!-- Track 4 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center border border-slate-700 card-hover">
+                         <div class="w-16 h-16 bg-violet-500/10 text-violet-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Cloud & Cyber Security</h3>
+                        <p class="text-gray-400">Develop solutions for cloud infrastructure, network security, or ethical hacking. Protect the digital frontier.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="py-20 md:py-32 section-glow">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Event Timeline</h2>
+                    <p class="text-lg text-violet-400 mt-2">Mark Your Calendars</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-slate-700 ml-6">
+                        <!-- Item 1 -->
+                        <div class="mb-12">
+                            <div class="absolute -left-4 w-8 h-8 bg-violet-500 rounded-full border-4 border-slate-900"></div>
+                            <div class="ml-12">
+                                <p class="text-xl font-bold text-white">10th October 2025</p>
+                                <h3 class="text-2xl font-semibold text-violet-300 mt-1">Registration Deadline</h3>
+                                <p class="text-gray-400 mt-2">Final day to submit your team and project abstract. Don't miss out!</p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="mb-12">
+                            <div class="absolute -left-4 w-8 h-8 bg-slate-600 rounded-full border-4 border-slate-900"></div>
+                            <div class="ml-12">
+                                <p class="text-xl font-bold text-white">1st November 2025</p>
+                                <h3 class="text-2xl font-semibold text-gray-400 mt-1">Project Submission (Tentative)</h3>
+                                <p class="text-gray-400 mt-2">Tentative deadline for submitting your project's executable and source code for preliminary checks.</p>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="mb-12">
+                            <div class="absolute -left-4 w-8 h-8 bg-violet-500 rounded-full border-4 border-slate-900"></div>
+                             <div class="ml-12">
+                                <p class="text-xl font-bold text-white">11th November 2025</p>
+                                <h3 class="text-2xl font-semibold text-violet-300 mt-1">E.D.G.E. 2025 - Event Day</h3>
+                                <p class="text-gray-400 mt-2">The main event! Project exhibitions, evaluations by judges, and the final award ceremony.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules Section -->
+        <section id="rules" class="py-20 md:py-32 bg-slate-900 section-glow">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Rules & Regulations</h2>
+                    <p class="text-lg text-violet-400 mt-2">Play Fair, Code Hard</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex items-start space-x-4">
+                        <svg class="h-8 w-8 text-green-400 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Eligibility</h3>
+                            <p class="text-gray-400">Open to all Undergraduate (UG) and Postgraduate (PG) students of the Department of Computer Applications, MIT-WPU.</p>
+                        </div>
+                    </div>
+                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex items-start space-x-4">
+                        <svg class="h-8 w-8 text-green-400 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Team Size</h3>
+                            <p class="text-gray-400">A maximum of <strong class="text-white">3 members</strong> are allowed per team. You can also participate individually.</p>
+                        </div>
+                    </div>
+                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex items-start space-x-4">
+                        <svg class="h-8 w-8 text-green-400 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Project Requirement</h3>
+                            <p class="text-gray-400">Only <strong class="text-white">fully functional, running projects</strong> will be accepted for evaluation. Be prepared to demonstrate your project live.</p>
+                        </div>
+                    </div>
+                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex items-start space-x-4">
+                        <svg class="h-8 w-8 text-yellow-400 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Track Viability</h3>
+                            <p class="text-gray-400">A competition track may be dropped if fewer than two groups are registered for it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-32 section-glow">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Frequently Asked Questions</h2>
+                    <p class="text-lg text-violet-400 mt-2">Have questions? We have answers.</p>
+                </div>
+                <div x-data="{ open: 1 }" class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="bg-slate-900 border-2 border-slate-800 rounded-lg">
+                        <button @click="open = (open === 1 ? 0 : 1)" class="w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-white">Is there a registration fee?</span>
+                            <span :class="{'rotate-45': open === 1}" class="transform transition-transform text-violet-400 text-3xl">+</span>
+                        </button>
+                        <div x-show="open === 1" x-cloak class="p-6 pt-0 text-gray-400">
+                           <p>No, participation in E.D.G.E. 2025 is completely free for all eligible students.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="bg-slate-900 border-2 border-slate-800 rounded-lg">
+                        <button @click="open = (open === 2 ? 0 : 2)" class="w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-white">Can I submit a project I've already built for a course?</span>
+                            <span :class="{'rotate-45': open === 2}" class="transform transition-transform text-violet-400 text-3xl">+</span>
+                        </button>
+                        <div x-show="open === 2" x-cloak class="p-6 pt-0 text-gray-400">
+                           <p>Yes, you can submit existing projects, provided they are your original work and have significant enhancements or new features added specifically for this competition. The innovation you bring will be a key judging criterion.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="bg-slate-900 border-2 border-slate-800 rounded-lg">
+                        <button @click="open = (open === 3 ? 0 : 3)" class="w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-white">What are the judging criteria?</span>
+                            <span :class="{'rotate-45': open === 3}" class="transform transition-transform text-violet-400 text-3xl">+</span>
+                        </button>
+                        <div x-show="open === 3" x-cloak class="p-6 pt-0 text-gray-400">
+                           <p>Projects will be judged on several criteria including technical complexity, innovation and creativity, real-world applicability, user interface/experience, and the quality of the final presentation and demo.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ 4 -->
+                    <div class="bg-slate-900 border-2 border-slate-800 rounded-lg">
+                        <button @click="open = (open === 4 ? 0 : 4)" class="w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-white">What should we bring on event day?</span>
+                            <span :class="{'rotate-45': open === 4}" class="transform transition-transform text-violet-400 text-3xl">+</span>
+                        </button>
+                        <div x-show="open === 4" x-cloak class="p-6 pt-0 text-gray-400">
+                           <p>You must bring your own laptops and any required hardware to run your project demo. Ensure your project is fully configured and ready to present. Power strips and Wi-Fi will be provided at the venue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Section -->
+        <section id="venue" class="py-20 md:py-32 bg-slate-900 section-glow">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Venue & Location</h2>
+                    <p class="text-lg text-violet-400 mt-2">Find your way to the competition</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-3xl font-bold text-white">Vyaas Building</h3>
+                        <p class="text-xl text-gray-300 mt-2">MIT World Peace University</p>
+                        <p class="text-gray-400 mt-4">Kothrud, Pune, Maharashtra 411038</p>
+                        <p class="mt-8 text-lg">For any queries, please contact:</p>
+                        <a href="mailto:edge.support@mitwpu.edu.in" class="text-violet-400 font-semibold hover:underline">edge.support@mitwpu.edu.in</a>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border-2 border-slate-700 h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.1950457556795!2d73.81495397556758!3d18.520086069188288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf0036344f9d%3A0x1441cedfd4298760!2sVyas%20Building!5e0!3m2!1sen!2sin!4v1757412073772!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p class="text-lg font-bold gradient-text">E.D.G.E. 2025</p>
+            <p class="mt-2">An Initiative by the Department of Computer Science and Applications</p>
+            <p>School of Computer Science and Engineering, MIT World Peace University</p>
+            <p class="mt-6 text-sm">&copy; 2025 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('countdown', (expiry) => ({
+                expiry: new Date(expiry).getTime(),
+                days: '00',
+                hours: '00',
+                minutes: '00',
+                seconds: '00',
+                interval: null,
+                init() {
+                    this.update();
+                    this.interval = setInterval(() => {
+                        this.update();
+                    }, 1000);
+                },
+                update() {
+                    let now = new Date().getTime();
+                    let distance = this.expiry - now;
+                    if (distance < 0) {
+                        this.days = '00';
+                        this.hours = '00';
+                        this.minutes = '00';
+                        this.seconds = '00';
+                        clearInterval(this.interval);
+                        return;
+                    }
+                    this.days = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                    this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                    this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                    this.seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                }
+            }))
+        })
+    </script>
+</body>
+</html>
+
+
